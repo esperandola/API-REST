@@ -29,5 +29,9 @@ router.patch('/updateCode/:id', function(req, res, next) {
 	res.send('Descuento actualizado \n');
 });
 
+router.get('/', function(req, res, next) {
+	res.send('Hola Mundo \n');
+});
+
 
 module.exports = router;
