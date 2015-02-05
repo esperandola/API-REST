@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var codigo =require('../mongoose_models/codigos');
 
-/* GET Generar y guardar descuento en MongoDB */
+/* POST Generar y guardar descuento en MongoDB */
 router.post('/newCode/:porcentaje', function(req, res, next) {
 	var contenido = new codigo({
 			description: req.params.porcentaje + '% de descuento',
@@ -12,27 +12,23 @@ router.post('/newCode/:porcentaje', function(req, res, next) {
 	  	if (err)
 	  		console.log('No se pudo guardar el descuento \n Error: ' + err);
 	  	else
-	 		console.log('Descuento guardado');
-	 		console.log(contenido);
+	 		console.log('Descuento guardado \n');
+	 		//console.log(contenido);
 	 		res.json(contenido);
 	});
 
 });
-//aqui generamos el update del estado del codigo de no usado -a-> usado
+
+// PATCH actualizar status = false (Descuento utilizado)
+
 router.patch('/updateCode/:id', function(req, res, next) {
-	var contenido = new codigo({
-			description: req.params.status +'status',
-			status: false // (True) Descuento no usado
-		});
-		contenido.update(function(err) {
-	  	if (err)
-	  		console.log('No se pudo guardar el descuento \n Error: ' + err);
-	  	else
-	 		console.log('Descuento guardado');
-	 		console.log(contenido);
-	 		res.json(contenido);
-	});
+	// Buscamos el descuendo por su object id
+	codigo.findById(req.params.id, function (err, query) {
+    	query.update({ status: false }).exec(); // Unicamente actualizamos su status (Descuento usado)
 
+	});
+	res.send('Descuento actualizado \n');
 });
+
 
 module.exports = router;
