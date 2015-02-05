@@ -18,7 +18,8 @@ router.post('/newCode/:porcentaje', function(req, res, next) {
 	});
 
 });
-router.post('/updateCode/:id', function(req, res, next) {
+//
+router.patch('/updateCode/:id', function(req, res, next) {
 	var contenido = new codigo({
 			description: req.params.status + 'status',
 			status: false // (True) Descuento no usado
