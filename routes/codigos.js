@@ -3,7 +3,7 @@ var router = express.Router();
 var codigo =require('../mongoose_models/codigos');
 
 /* GET Generar y guardar descuento en MongoDB */
-router.post('/newCode:porcentaje', function(req, res, next) {
+router.post('/newCode/:porcentaje', function(req, res, next) {
 	var contenido = new codigo({
 			description: req.params.porcentaje + '% de descuento',
 			status: true // (True) Descuento no usado
