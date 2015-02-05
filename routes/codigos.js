@@ -13,15 +13,15 @@ router.post('/newCode/:porcentaje', function(req, res, next) {
 	  		console.log('No se pudo guardar el descuento \n Error: ' + err);
 	  	else
 	 		console.log('Descuento guardado');
-	 		//console.log(contenido);
+	 		console.log(contenido);
 	 		res.json(contenido);
 	});
 
 });
-//
+//aqui generamos el update del estado del codigo de no usado -a-> usado
 router.patch('/updateCode/:id', function(req, res, next) {
 	var contenido = new codigo({
-			description: req.params.status + 'status',
+			description: req.params.status +'status',
 			status: false // (True) Descuento no usado
 		});
 		contenido.update(function(err) {
@@ -29,7 +29,7 @@ router.patch('/updateCode/:id', function(req, res, next) {
 	  		console.log('No se pudo guardar el descuento \n Error: ' + err);
 	  	else
 	 		console.log('Descuento guardado');
-	 		//console.log(contenido);
+	 		console.log(contenido);
 	 		res.json(contenido);
 	});
 
