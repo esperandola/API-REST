@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-app.get('/', function(request, response) {
+router.get('/', function(request, response) {
   response.send('Hello World!');
 });
 
