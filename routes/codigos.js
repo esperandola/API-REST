@@ -30,6 +30,8 @@ router.patch('/updateCode/:id', function(req, res, next) {
 	res.send('Descuento actualizado \n');
 });
 
+
+// GET Test Hola Mundo
 router.get('/', function(req, res, next) {
 	res.send('Hola Mundo \n');
 });
