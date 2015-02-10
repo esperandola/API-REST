@@ -11,7 +11,7 @@ var codigos = require('./routes/codigos');
 var app = express();
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/codigos');
+mongoose.connect('mongodb://esperandola:Esperando_la@dbh46.mongolab.com:27467/esperando_la');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
